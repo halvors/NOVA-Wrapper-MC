@@ -1,5 +1,6 @@
 package nova.wrapper.mc1710.wrapper.entity;
 
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -11,6 +12,8 @@ import nova.core.inventory.component.InventoryPlayer;
 import nova.wrapper.mc1710.wrapper.entity.forward.MCEntityTransform;
 import nova.wrapper.mc1710.wrapper.inventory.BWInventory;
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
+
+import java.util.Optional;
 
 /**
  * A Minecraft to NOVA Entity wrapper
@@ -85,6 +88,11 @@ public class BWEntity extends Entity {
 		@Override
 		public String getDisplayName() {
 			return entity.getDisplayName();
+		}
+
+		@Override
+		public Optional<Boolean> isSneaking() {
+			return Optional.of(entity.isSneaking());
 		}
 	}
 
